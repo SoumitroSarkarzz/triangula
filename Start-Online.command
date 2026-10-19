@@ -2,7 +2,7 @@
 # macOS bash 3.2 compatible. No global process kills; all children belong to this run.
 set -euo pipefail
 cd -- "$(dirname -- "$0")"
-export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@24/bin:/usr/local/opt/node@24/bin:/opt/homebrew/opt/node@22/bin:/usr/local/opt/node@22/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 PORT="${PORT:-3000}"
 case "$PORT" in ''|*[!0-9]*) echo 'PORT must be a number.'; exit 1;; esac
 if (( PORT < 1 || PORT > 65535 )); then echo 'PORT must be 1–65535.'; exit 1; fi
