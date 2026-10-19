@@ -1,0 +1,38 @@
+{
+  "name": "triangula-afterhours",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.12.0 || ^24.0.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server/index.ts",
+    "build": "tsc --noEmit && vite build && esbuild src/server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server.js",
+    "start": "node dist/server.js",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "tsc --noEmit",
+    "test:browser": "playwright test",
+    "test:launcher": "tsx --test tests/hosting/*.test.ts"
+  },
+  "dependencies": {
+    "express": "5.1.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "socket.io": "4.8.1",
+    "socket.io-client": "4.8.1"
+  },
+  "devDependencies": {
+    "@fontsource/barlow-condensed": "5.2.6",
+    "@fontsource/dm-sans": "5.2.6",
+    "@playwright/test": "1.64.1",
+    "@types/express": "5.0.3",
+    "@types/node": "24.3.0",
+    "@types/react": "19.1.12",
+    "@types/react-dom": "19.1.9",
+    "esbuild": "0.25.9",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2",
+    "vite": "7.3.7"
+  }
+}

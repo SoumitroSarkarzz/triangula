@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'tests/browser',timeout:30000,fullyParallel:false,reporter:'list',outputDir:'.playwright/results',use:{baseURL:'http://127.0.0.1:3000',launchOptions:process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}},webServer:{command:'npm start',url:'http://127.0.0.1:3000/health',reuseExistingServer:false,timeout:15000}});

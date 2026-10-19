@@ -1,0 +1,10 @@
+export type Point = { x:number; y:number };
+export type Edge = [number,number];
+export type Settings = {size:12|20|30; layout:'jitter'|'scatter'};
+export type Player = {id:string; name:string; connected:boolean; ready:boolean; disconnectedAt:number|null};
+export type Triangle = {vertices:[number,number,number]; owner:number; area2:number};
+export type Move = {player:number; edge:Edge; area2:number; at:number};
+export type Game = {id:string; points:Point[]; edges:Edge[]; triangles:Triangle[]; scores:[number,number]; turn:number; starter:number; hullArea2:number; history:Move[]; winner:number|null; reason:'complete'|'resignation'|'disconnect'|null};
+export type Room = {code:string; revision:number; hostId:string; players:Player[]; settings:Settings; seed:number; preview:Point[]; phase:'lobby'|'match'|'results'; game:Game|null; rematch:string[]; graceMs:number};
+export type Action = {actionId:string; revision:number; matchId:string|null; type:'ready'|'settings'|'regenerate'|'start'|'move'|'resign'|'rematch'|'lobby'|'leave'|'claim'; edge?:Edge; settings?:Settings};
+export type Reply = {ok:boolean; error?:string; room?:Room; playerId?:string; token?:string};
